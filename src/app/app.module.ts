@@ -11,7 +11,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Network } from '@ionic-native/network';
 import {AddToDoPage} from '../pages/add-to-do/add-to-do';
 import {ToDoService} from '../Shared/ToDoService';
-import {ToDoItemPage} from '../pages/to-do-item/to-do-item'
+import {ToDoItemPage} from '../pages/to-do-item/to-do-item';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import {ToDoItemPage} from '../pages/to-do-item/to-do-item'
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

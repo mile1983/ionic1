@@ -35,7 +35,9 @@ export class HomePage {
     ) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
-    this.items = this.todoService.getAll();
+      this.todoService.getAll().then((todos) =>{
+      this.items =todos
+    });
     
   }
 
