@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
@@ -8,11 +8,45 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <h3>2Do List</h3>
+  <button  (click) = "selectItem(item)">
+  <ion-list>
+    <button ion-item *ngFor = "let item of items" (click) = "selectItem(item)">
+        <ion-icon ios="ios-analytics" md="md-analytics"></ion-icon>
+         {{item.title}}
+        <div class ="item-note">{{item.note}}</div>
+    </button>
+    
+  </ion-list>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <div *ngIf="selectedItem" >
+    Selektovali ste: {{selectedItem.title}}
+  </div>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
-</ion-content>
+  
+</ion-content> -->
+
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Home</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <h3>2DO List</h3>
+  <button (click)="addNewTodo()">Add New</button>
+    <ion-list>
+      <button ion-item *ngFor="let item of items" (click)="selectItem(item)">
+          <ion-icon ios="ios-alarm" md="md-alarm"></ion-icon>
+          {{item.date}} - {{item.title}}
+        <div class="item-note">{{item.note}}</div>
+      </button>
+    </ion-list>
+  
+   <div *ngIf="selectedItem">
+      Selektovali ste: {{ selectedItem.title }}
+    </div>
+  </ion-content>

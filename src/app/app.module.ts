@@ -4,16 +4,23 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Network } from '@ionic-native/network';
+import {AddToDoPage} from '../pages/add-to-do/add-to-do';
+import {ToDoService} from '../Shared/ToDoService';
+import {ToDoItemPage} from '../pages/to-do-item/to-do-item'
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    AddToDoPage,
+    ToDoItemPage
+    
   ],
   imports: [
     BrowserModule,
@@ -23,11 +30,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    AddToDoPage,
+    ToDoItemPage
+    
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Network,
+    ToDoService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
